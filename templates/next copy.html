@@ -1,20 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+    <title>Center a div in the middle of the body</title>
     <style>
+        /* CSS to center the div */
         body {
-            margin: 0;
-            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             background: #2980b9 url('https://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0;
             -webkit-animation: 10s linear 0s normal none infinite animate;
             -moz-animation: 10s linear 0s normal none infinite animate;
@@ -112,55 +106,22 @@
             background-size: 800%;
             animation: walkanim 1s infinite steps(7);
         }
+
+        .centered-div {
+            width: 50%;
+            background-color: rgb(223, 221, 221);
+            text-align: center;
+            padding: 20px;
+        }
     </style>
 </head>
 
 <body>
-    <div style="width: 100vw; height: 25vh; align-content: center;">
-        <center>
-            <br>
-            <h1>Siguiente Ubicacion :</h1>
-            <p>Parte alta de la Catedral de Cuenca</p>
-            <br><br>
-            <img src="img/Imagen1.jpg" alt="" style="">
-        </center>
+    <div class="centered-div">
+        <h1>Juego Terminado</h1>
+        <p>Puntuacion Final: 10pts</p>
+        <img src="img/d.svg" alt="" style="height: 25vh; width: 25vw;">
     </div>
-    <div style="padding-top: 10vh;">
-        <div id="walk-container">
-            <div id="walk" style="padding-top: 50vh;"></div>
-
-        </div>
-
-    </div>
-
-    <script
-  src="https://code.jquery.com/jquery-3.6.4.js"
-  integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
-  crossorigin="anonymous"></script>
-
-    <script>
-
-        function receiveData(){
-            var queryString = decodeURIComponent(window.location.search);
-            queryString = queryString.substring(1);
-            var queries = queryString.split("&");
-            return queries
-        }
-        function sendData(){
-            
-            data = receiveData();
-            var value1="value1";
-            var value2="value2";
-            var queryString = "?" + data[0] + "&" + data[1];
-            window.location.href = "questiont.html" + queryString; 
-        }
-      
-        $(document).ready(function() {
-        setTimeout(function() {
-        sendData()
-        }, 5000); // 5000 milliseconds = 5 seconds
-        });
-    </script>
 </body>
 
 </html>
