@@ -498,7 +498,7 @@
         <p style="font-size: 2em;">{{data['text']}}
         </p>
         <br><br>
-        <img src="img/Imagen2.png" alt="">
+        <img src="/static/img/{{data['photo']}}" alt="">
     </div>
     <div id="boxes" style="padding-top: 15vh; ">
         <div id="leftbox" style="padding-left: 5vw;">
@@ -507,10 +507,30 @@
         </div>
 
         <div id="rightbox" style="padding-right: 5vw;">
-            <button type="Comenzar" class="btn btn-primary btn-lg" onclick="location.href='next';">Enviar</button>
+            <button type="Comenzar" class="btn btn-primary btn-lg" onclick="location.href='../next';">Enviar</button>
         </div>
         <br><br><br>
     </div>
+    <audio id="player" autoplay loop>
+        <source src="/static/sounds/Happy-Days.mp3" type="audio/mp3">
+
+    </audio>
+    <script>
+
+        const audio = document.getElementById('player');
+
+        // Add event listener for mousemove event
+        document.addEventListener('mousemove', function (event) {
+            // Check if audio has already been played
+            if (!audio.played.length) {
+                // Play audio on first mouse movement
+                audio.play();
+            }
+        });
+        document.addEventListener("click", function () {
+            audio.play();
+        });
+    </script>
     <script src="https://code.jquery.com/jquery-3.6.4.js"
         integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
     <script>
@@ -529,7 +549,7 @@
             var value1 = "value1";
             var value2 = "value2";
             var queryString = "?" + value1 + "&" + value2;
-            window.location.href = "next" + queryString;
+            window.location.href = "/next" + queryString;
         }
         $(document).ready(function () {
             $('.btn').click(function () {

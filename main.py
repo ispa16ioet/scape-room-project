@@ -23,8 +23,8 @@ def questiont(id):
     print(data[int(id)])
     return render_template('questiont.html',data = data[int(id)])
 
-@app.route('/validate/<id>/<answerd>')
-def validate(id,answerd):
+@app.route('/validate/<id>/<answer>')
+def validate(id,answer):
     data = questions.questions
     print(data[int(id)])
     return render_template('questiont.html',data = data[int(id)])

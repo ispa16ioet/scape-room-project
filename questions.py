@@ -3,8 +3,8 @@ questions= [{
     'type':'1',
     'answer':'0,83',
     'hint':'',
-    'photo':'',
-    'next':''
+    'photo':'Imagen1.jpg',
+    'next':'Imagen2.jpg'
 },{
     'text':'Como segunda puerta, tenemos a la imagen de la Virgen de Guadalupe y quien en sus manos tiene un papel con dos preguntas',
     'type':'1',

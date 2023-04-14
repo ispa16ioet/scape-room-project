@@ -219,6 +219,26 @@
 
         </div>
     </div>
+    <audio id="player" autoplay loop>
+        <source src="static/sounds/Happy-Days.mp3" type="audio/mp3">
+
+    </audio>
+    <script>
+
+        const audio = document.getElementById('player');
+
+        // Add event listener for mousemove event
+        document.addEventListener('mousemove', function (event) {
+            // Check if audio has already been played
+            if (!audio.played.length) {
+                // Play audio on first mouse movement
+                audio.play();
+            }
+        });
+        document.addEventListener("click", function () {
+            audio.play();
+        });
+    </script>
 </body>
 
 

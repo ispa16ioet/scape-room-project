@@ -474,9 +474,9 @@
             <h1 class="display-1">Geometry </h1>
             <h1 class="display-1">Escape</h1>
             <br>
-            <div class="content" onclick="location.href='question';">
+            <div class="content" onclick="location.href='next?0&Parte alta de la Catedral de Cuenca&Imagen1.jpg';">
                 <input type="checkbox" id="play">
-                <a href="question">
+                <a href="">
                     <label for="play">
                         <div class="letter-p"></div>
                         <div class="letter-l"></div>
@@ -487,6 +487,82 @@
             </div>
         </center>
     </main>
+    <audio id="player" autoplay loop>
+        <source src="static/sounds/Happy-Days.mp3" type="audio/mp3">
+
+    </audio>
+    <script>
+
+        function receiveData() {
+            var queryString = decodeURIComponent(window.location.search);
+            queryString = queryString.substring(1);
+            var queries = queryString.split("&");
+            return queries
+        }
+        function sendData() {
+
+            data = receiveData();
+            var value1 = "value1";
+            var value2 = "value2";
+            var queryString = "?" + data[0] + "&" + data[1];
+            window.location.href = "next" + queryString;
+        }
+
+
+    </script>
+    <script>
+
+        var audio = document.getElementById("player");
+
+        function playSound() {
+            audio.play();
+        }
+
+        function showAlertWithButton() {
+            var alertBox = document.createElement("div");
+            alertBox.style.position = "fixed";
+            alertBox.style.top = "0";
+            alertBox.style.left = "0";
+            alertBox.style.width = "100%";
+            alertBox.style.height = "100%";
+            alertBox.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+            alertBox.style.zIndex = "9999";
+            alertBox.onclick = function () {
+                document.body.removeChild(alertBox);
+            };
+
+            var alertBoxContent = document.createElement("div");
+            alertBoxContent.style.position = "absolute";
+            alertBoxContent.style.top = "50%";
+            alertBoxContent.style.left = "50%";
+            alertBoxContent.style.transform = "translate(-50%, -50%)";
+            alertBoxContent.style.backgroundColor = "#fff";
+            alertBoxContent.style.padding = "20px";
+            alertBoxContent.style.borderRadius = "5px";
+            alertBoxContent.style.textAlign = "center";
+            alertBox.appendChild(alertBoxContent);
+
+            var alertBoxText = document.createElement("p");
+            alertBoxText.textContent = "Porfavor activar el audio!";
+            alertBoxContent.appendChild(alertBoxText);
+
+            var alertBoxButton = document.createElement("button");
+            alertBoxButton.textContent = "Activar Audio";
+            alertBoxButton.onclick = function () {
+                playSound();
+                document.body.removeChild(alertBox);
+            };
+            alertBoxContent.appendChild(alertBoxButton);
+
+            document.body.appendChild(alertBox);
+        }
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            showAlertWithButton();
+        });
+    </script>
+
 </body>
 
 </html>
