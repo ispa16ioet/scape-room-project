@@ -1,7 +1,7 @@
 import os
 
 from flask import Flask, render_template
-
+import questions
 app = Flask(__name__)
 
 
@@ -17,9 +17,17 @@ def next():
 def question():
     return render_template('question.html')
 
-@app.route('/questiont')
-def questiont():
-    return render_template('questiont.html')
+@app.route('/questiont/<id>')
+def questiont(id):
+    data = questions.questions
+    print(data[int(id)])
+    return render_template('questiont.html',data = data[int(id)])
+
+@app.route('/validate/<id>/<answerd>')
+def validate(id,answerd):
+    data = questions.questions
+    print(data[int(id)])
+    return render_template('questiont.html',data = data[int(id)])
 
 
 if __name__ == '__main__':

@@ -490,18 +490,12 @@
     <br><br>
     <div style="width: 100vw; height: 5vh; padding-top: 1vh; align-content: center;">
         <center>
-            <h2 style="">Tiempo: 10:30</h2>
+            <h2 style="" id="time">Tiempo: 20:00</h2>
         </center>
 
     </div>
     <div style=" width: 100vw; text-align: center; padding-top: 10vh; padding-left: 10vw;padding-right: 10vw;">
-        <p style="font-size: 2em;">El turista se encuentra en la parte alta de la Catedral en Cuenca, observando lo
-            hermoso del arte a su
-            alrededor. Se toma una fotografía de recuerdo y pasa un buen momento. Al regresar, se da cuenta que la
-            primera puerta tiene una clave estructurada de la siguiente manera.
-            _____ , _____ ______
-            Los espacios son números que son la solución del siguiente problema.
-            ¿Cuál es la razón de semejanza entre estas dos figuras?
+        <p style="font-size: 2em;">{{data['text']}}
         </p>
         <br><br>
         <img src="img/Imagen2.png" alt="">
@@ -517,40 +511,101 @@
         </div>
         <br><br><br>
     </div>
-    <script
-  src="https://code.jquery.com/jquery-3.6.4.js"
-  integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
-  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
     <script>
 
-        function receiveData(){
+        function receiveData() {
             var queryString = decodeURIComponent(window.location.search);
             queryString = queryString.substring(1);
             var queries = queryString.split("&");
-            for (var i = 0; i < queries.length; i++)
-            {
-            console.log(queries[i] + "<br>");
-            } 
+            for (var i = 0; i < queries.length; i++) {
+                console.log(queries[i] + "<br>");
+            }
         }
-        function sendData(){
-            
-            
-            var value1="value1";
-            var value2="value2";
+        function sendData() {
+
+
+            var value1 = "value1";
+            var value2 = "value2";
             var queryString = "?" + value1 + "&" + value2;
-            window.location.href = "next" + queryString; 
+            window.location.href = "next" + queryString;
         }
-        $(document).ready(function(){
-            $('.btn').click(function(){
+        $(document).ready(function () {
+            $('.btn').click(function () {
                 sendData();
             });
-            });
+        });
 
-        $(document).ready(function() {
+        $(document).ready(function () {
             receiveData();
         });
     </script>
 
+    <script>
+        var remainingTime = 1200; // 20 minutos en segundos
+        var timerInterval;
+
+        $(document).ready(function () {
+            // Agregamos los manejadores de eventos para los botones
+            $("#startStopButton").click(startStop);
+            $("#resetButton").click(reset);
+
+            // Iniciamos el temporizador automáticamente
+            startTimer();
+        });
+
+        function startTimer() {
+            // Iniciamos el temporizador
+            timerInterval = setInterval(updateTime, 1000);
+        }
+
+        function startStop() {
+            if (timerInterval) {
+                // Si el temporizador ya está en marcha, lo detenemos
+                clearInterval(timerInterval);
+                timerInterval = null;
+                $("#startStopButton").html("Iniciar");
+            } else {
+                // Si el temporizador no está en marcha, lo iniciamos
+                startTimer();
+                $("#startStopButton").html("Detener");
+            }
+        }
+
+        function reset() {
+            // Detenemos el temporizador (si está en marcha) y lo reiniciamos
+            clearInterval(timerInterval);
+            timerInterval = null;
+            remainingTime = 1200;
+            $("#time").html("20:00");
+            $("#startStopButton").html("Iniciar");
+        }
+
+        function updateTime() {
+            // Restamos un segundo al tiempo restante
+            remainingTime--;
+
+            // Convertimos el tiempo restante a minutos y segundos
+            var minutes = Math.floor(remainingTime / 60);
+            var seconds = remainingTime % 60;
+
+            // Formateamos el tiempo para que tenga siempre dos dígitos en cada campo
+            var formattedTime = minutes.toString().padStart(2, "0") + ":" +
+                seconds.toString().padStart(2, "0");
+
+            // Actualizamos el texto del temporizador
+            $("#time").html(formattedTime);
+
+            if (remainingTime == 0) {
+                // Si el tiempo restante llega a cero, detenemos el temporizador y mostramos un mensaje
+                clearInterval(timerInterval);
+                timerInterval = null;
+                $("#startStopButton").html("Iniciar");
+                alert("¡Tiempo cumplido!");
+            }
+        }
+    </script>
 
 </body>
 
