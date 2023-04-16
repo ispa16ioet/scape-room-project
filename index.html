@@ -487,6 +487,16 @@
             </div>
         </center>
     </main>
+    <audio id="myAudio" controls loop>
+        <source src="Happy-Days.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).one("click", function () {
+            $("#myAudio").get(0).play();
+        });
+    </script>
 </body>
 
 </html>

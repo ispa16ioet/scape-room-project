@@ -120,9 +120,9 @@
         <center>
             <br>
             <h1>Siguiente Ubicacion :</h1>
-            <p>Parte alta de la Catedral de Cuenca</p>
+            <p id="ubi">Parte alta de la Catedral de Cuenca</p>
             <br><br>
-            <img src="img/Imagen1.jpg" alt="" style="">
+            <img id="img" src="/static/img/Imagen1.jpg" alt="" style="">
         </center>
     </div>
     <div style="padding-top: 10vh;">
@@ -173,12 +173,19 @@
             data = receiveData();
             var value1 = "value1";
             var value2 = "value2";
-            var queryString = "?" + data[0] + "&" + data[1];
-            window.location.href = "questiont" + queryString;
+            var queryString = "?" + (data[0]+1) + "&" + data[1];
+            window.location.href = "questiont/" + (data[0]+1) + queryString;
         }
-
+        function load_stuff(text,img){
+            var paragraph = document.getElementById('ubi');
+            paragraph.innerHTML = text;
+            var image = document.getElementById('img');
+            image.src = '/static/img/'+img.toString();
+        }
         $(document).ready(function () {
-            console.log(receiveData());
+            data = receiveData();
+            console.log(data, data[0])
+            load_stuff(data[1],data[2])
             setTimeout(function () {
 
                 sendData();
