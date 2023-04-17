@@ -502,18 +502,25 @@
     </div>
     <div id="boxes" style="padding-top: 15vh; ">
         <div id="leftbox" style="padding-left: 5vw;">
-            <input style="width: 30vw;" type="text" placeholder="Ingrese su respuesta" class="form-control"
+            <input style="width: 30vw;" id="anws" type="text" placeholder="Ingrese su respuesta" class="form-control"
                 aria-label="Default" aria-describedby="inputGroup-sizing-default">
         </div>
 
         <div id="rightbox" style="padding-right: 5vw;">
-            <button type="Comenzar" class="btn btn-primary btn-lg" onclick="location.href='../next';">Enviar</button>
+            <button type="Comenzar" class="btn btn-primary btn-lg">Enviar</button>
         </div>
         <br><br><br>
     </div>
     <audio id="player" autoplay loop>
         <source src="/static/sounds/Happy-Days.mp3" type="audio/mp3">
 
+    </audio>
+    <audio id="correct">
+        <source src="/static/sounds/succes.mp3" type="audio/mp3">
+
+    </audio>
+    <audio id="incorrect">
+        <source src="/static/sounds/negative.mp3" type="audio/mp3">
     </audio>
     <script>
 
@@ -539,41 +546,113 @@
             var queryString = decodeURIComponent(window.location.search);
             queryString = queryString.substring(1);
             var queries = queryString.split("&");
-            for (var i = 0; i < queries.length; i++) {
-                console.log(queries[i] + "<br>");
-            }
+            return queries
         }
-        function sendData() {
+        function sendData(text, img, tmp) {
 
-
-            var value1 = "value1";
-            var value2 = "value2";
-            var queryString = "?" + value1 + "&" + value2;
+            data = receiveData();
+            var queryString = "?" + parseInt(data[0]) + "&" + text + "&" + img + "&" + tmp;
             window.location.href = "/next" + queryString;
         }
-        $(document).ready(function () {
-            $('.btn').click(function () {
-                sendData();
-            });
-        });
 
-        $(document).ready(function () {
-            receiveData();
-        });
+
     </script>
 
     <script>
-        var remainingTime = 1200; // 20 minutos en segundos
+        function showAlertWithButton(rta, condition, anws) {
+            console.log(condition)
+            var alertBox = document.createElement("div");
+            alertBox.style.position = "fixed";
+            alertBox.style.top = "0";
+            alertBox.style.left = "0";
+            alertBox.style.width = "100%";
+            alertBox.style.height = "100%";
+            alertBox.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+            alertBox.style.zIndex = "9999";
+            alertBox.onclick = function () {
+                document.body.removeChild(alertBox);
+            };
+
+            var alertBoxContent = document.createElement("div");
+            alertBoxContent.style.position = "absolute";
+            alertBoxContent.style.top = "50%";
+            alertBoxContent.style.left = "50%";
+            alertBoxContent.style.transform = "translate(-50%, -50%)";
+            alertBoxContent.style.backgroundColor = "#fff";
+            alertBoxContent.style.padding = "20px";
+            alertBoxContent.style.borderRadius = "5px";
+            alertBoxContent.style.textAlign = "center";
+            alertBox.appendChild(alertBoxContent);
+
+            var alertBoxText = document.createElement("p");
+            alertBoxText.textContent = rta;
+            alertBoxContent.appendChild(alertBoxText);
+
+            var alertBoxButton = document.createElement("button");
+            alertBoxButton.textContent = "Aceptar";
+            alertBoxButton.onclick = function () {
+                document.body.removeChild(alertBox);
+            };
+            if (condition == 'true') {
+                alertBoxText.textContent = rta;
+                alertBoxButton.onclick = function () {
+                    sendData(anws['nextUbi'], anws['next'], remainingTime)
+                    document.body.removeChild(alertBox);
+                };
+            }
+
+            alertBoxContent.appendChild(alertBoxButton);
+
+            document.body.appendChild(alertBox);
+        }
+        function request(id, anws, callback) {
+            $.get(`/validate/${id}/${anws}`, function (response) {
+                // Do something with the response
+                console.log(response)
+                callback(response);
+            });
+        }
+
+        function manageResult(anws, remainingTime) {
+            console.log('jj')
+            if (anws['anws'].toString() == 'true') {
+                console.log('lo lograste beibi');
+                var audio = document.getElementById('correct');
+                audio.play();
+                showAlertWithButton('Respuesta Correcta!', 'true', anws);
+            } else {
+                var audio = document.getElementById('incorrect');
+                audio.play();
+                showAlertWithButton('Respuesta Incorrecta!', 'false');
+
+            }
+        }
+
+        data = receiveData()
+        console.log(data)
+        var remainingTime = parseInt(data[3]);
         var timerInterval;
-
+        data = receiveData()
         $(document).ready(function () {
-            // Agregamos los manejadores de eventos para los botones
-            $("#startStopButton").click(startStop);
-            $("#resetButton").click(reset);
+            $('.btn').click(function () {
+                var inputValue = $('#anws').val();
+                result = request(data[0], inputValue)
+                request(data[0], inputValue, function (response) {
+                    // Manejar la respuesta aquí
+                    console.log(response);
+                    manageResult(response, remainingTime);
+                });
 
-            // Iniciamos el temporizador automáticamente
-            startTimer();
+                //sendData();
+            });
         });
+        // Agregamos los manejadores de eventos para los botones
+        $("#startStopButton").click(startStop);
+        $("#resetButton").click(reset);
+
+        // Iniciamos el temporizador automáticamente
+        startTimer();
+
 
         function startTimer() {
             // Iniciamos el temporizador

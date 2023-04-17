@@ -4,21 +4,24 @@ questions= [{
     'answer':'0,83',
     'hint':'',
     'photo':'Imagen1.jpg',
-    'next':'Imagen2.jpg'
+    'next':'Imagen2.jpg',
+    'nextUbi':'cc'
 },{
     'text':'Como segunda puerta, tenemos a la imagen de la Virgen de Guadalupe y quien en sus manos tiene un papel con dos preguntas',
     'type':'1',
     'answer':'equilátero, isósceles y escaleno',
     'hint':'',
     'photo':'',
-    'next':''
+    'next':'',
+    'nextUbi':'cc'
 },{
     'text':'Como segunda pregunta tenemos que un ingeniero quiere darle forma a los siguientes datos que le proporciona el plano que le dio su jefe ¿Qué triángulo se formará, si el segmento AC mide 12m y el segmento CB = AC, y el segmento que une a estos es  BA mide 8m?',
     'type':'1',
     'answer':'Se forma un triángulo isósceles ',
     'hint':'',
     'photo':'',
-    'next':''
+    'next':'',
+    'nextUbi':'cc'
 },{
     'text':'El turista se pierde al bajar las gradas y encuentra una pintura de un mapa de la catedral internamente, para tener acceso a él, se les propone el siguiente problema:  Lo siguientes pares de triángulos cumplen con el criterio de congruencia LADO- ÁNGULO-LADO',
     'type':'2',

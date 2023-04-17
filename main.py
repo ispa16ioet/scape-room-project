@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, render_template
+from flask import Flask, render_template,jsonify
 import questions
 app = Flask(__name__)
 
@@ -13,9 +13,9 @@ def index():
 def next():
     return render_template('next.html')
 
-@app.route('/question')
+@app.route('/intro')
 def question():
-    return render_template('question.html')
+    return render_template('intro.html')
 
 @app.route('/questiont/<id>')
 def questiont(id):
@@ -25,10 +25,16 @@ def questiont(id):
 
 @app.route('/validate/<id>/<answer>')
 def validate(id,answer):
+    print(id,answer)
+    anws= {'anws':'false'}
     data = questions.questions
-    print(data[int(id)])
-    return render_template('questiont.html',data = data[int(id)])
-
-
+    if answer == str(data[int(id)]['answer']):
+        anwse= {'anws':'true',
+               'photo':data[int(id)]['photo'],
+               'next':data[int(id)]['next'],
+               'nextUbi':data[int(id)]['nextUbi'],
+               }
+        return jsonify(anwse)
+    return jsonify(anws)
 if __name__ == '__main__':
     app.run(debug=True)
