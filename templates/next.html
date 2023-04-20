@@ -12,16 +12,10 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: #2980b9 url('https://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0;
-            -webkit-animation: 10s linear 0s normal none infinite animate;
-            -moz-animation: 10s linear 0s normal none infinite animate;
-            -ms-animation: 10s linear 0s normal none infinite animate;
-            -o-animation: 10s linear 0s normal none infinite animate;
-            animation: 10s linear 0s normal none infinite animate;
-
+        body{
+            background-image: url('/static/img/Imagen1.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         @-webkit-keyframes animate {
@@ -182,8 +176,10 @@
         function load_stuff(text, img) {
             var paragraph = document.getElementById('ubi');
             paragraph.innerHTML = text;
-            var image = document.getElementById('img');
-            image.src = '/static/img/' + img.toString();
+                        // Get a reference to the body element
+            const body = document.body;
+            // Set the background image of the body
+            body.style.backgroundImage = `url(/static/img/${img.toString()})`;
         }
         $(document).ready(function () {
             data = receiveData();

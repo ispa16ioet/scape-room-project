@@ -698,6 +698,7 @@
             const livesNumber = parseInt(livesText.split(":")[1]) - 1;
             if (livesNumber <= 0) {
                 showAlertWithButton('no te quedan pistas!', 'false');
+                livesHeading.innerText = `Pistas: 0`;
             } else {
                 livesHeading.innerText = `Pistas: ${livesNumber}`;
                 showAlertWithButton("{{data['hint']}}", 'false');
