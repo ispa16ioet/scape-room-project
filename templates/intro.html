@@ -213,9 +213,9 @@
         <div class="output" id="output">
             <h1 class="cursor"></h1>
             <br>
-            <button onclick="location.href='next?-1&Parte alta de la Catedral de Cuenca&Imagen1.jpg&1200';"
+            <button onclick=sendData()
                 type="Comenzar" class="btn btn-primary btn-lg">Comenzar</button>
-
+            
 
         </div>
     </div>
@@ -241,6 +241,18 @@
     </script>
 </body>
 
-
+<script>
+    function receiveData() {
+        var queryString = decodeURIComponent(window.location.search);
+        queryString = queryString.substring(1);
+        var queries = queryString.split("&");
+        return queries
+    }
+    function sendData() {
+        
+        data = receiveData();
+        window.location.href =`next?-1&Parte alta de la Catedral de Cuenca&Imagen1.jpg&1200&5&5&${data[0]}`;
+    }
+</script>
 
 </html>

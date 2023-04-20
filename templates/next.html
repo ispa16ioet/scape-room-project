@@ -173,9 +173,10 @@
         function sendData() {
 
             data = receiveData();
+            console.log(data[5])
             var value1 = "value1";
             var value2 = "value2";
-            var queryString = "?" + (parseInt(data[0]) + 1) + "&" + data[1] + "&" + data[2] + "&" + data[3];
+            var queryString = "?" + (parseInt(data[0]) + 1) + "&" + data[1] + "&" + data[2] + "&" + data[3] + "&" + data[4] + "&" + data[5]+ "&" + data[6];
             window.location.href = "questiont/" + (parseInt(data[0]) + 1) + queryString;
         }
         function load_stuff(text, img) {

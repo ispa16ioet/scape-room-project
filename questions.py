@@ -1,6 +1,6 @@
 questions= [{
     'text':f'El turista se encuentra en la parte alta de la Catedral en Cuenca, observando lo hermoso del arte a su alrededor. Se toma una fotografía de recuerdo y pasa un buen momento. Al regresar, se da cuenta que   la primera puerta tiene  una clave estructurada de la siguiente manera._____   , _____  ______Los espacios son números que son la solución del siguiente problema.¿Cuál es la razón de semejanza entre estas dos figuras? ',
-    'type':'1',
+    'type':'m2',
     'answer':'0,83',
     'hint':'',
     'photo':'Imagen2.png',

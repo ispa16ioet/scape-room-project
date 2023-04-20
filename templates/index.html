@@ -470,27 +470,48 @@
 
 <body>
     <main>
-        <center style="padding-top: 05vh;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
-            <h1 class="display-1">Geometry </h1>
-            <h1 class="display-1">Escape</h1>
-            <br>
-            <div class="content" onclick="location.href='/intro';">
-                <input type="checkbox" id="play">
-                <a href="">
-                    <label for="play">
-                        <div class="letter-p"></div>
-                        <div class="letter-l"></div>
-                        <div class="letter-a"><span></span></div>
-                        <div class="letter-y"></div>
-                    </label>
-                </a>
-            </div>
-        </center>
+        <form>
+            <center style="padding-top: 05vh;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+                <h1 class="display-1">Geometry </h1>
+                <h1 class="display-1">Escape</h1>
+                <br>
+                <div class="content" id="submit-btn">
+                    <input type="checkbox" id="play">
+                        <label for="play">
+                            <div class="letter-p"></div>
+                            <div class="letter-l"></div>
+                            <div class="letter-a"><span></span></div>
+                            <div class="letter-y"></div>
+                        </label>
+                </div>
+                <br><br>
+                <input required style="width: 30vw;" id="anws" type="text" placeholder="Ingrese el nombre del equipo"
+                    class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            </center>
+        </form>
     </main>
     <audio id="player" autoplay loop>
         <source src="static/sounds/Happy-Days.mp3" type="audio/mp3">
 
     </audio>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+
+    <script>
+        const submitButton = document.getElementById("submit-btn");
+        const inputField = document.getElementById("anws");
+
+        submitButton.addEventListener("click", function () {
+            if (inputField.value == "") {
+                alert("Por favor inserte el nombre del equipo!");
+            }else{
+                var inputValue = $('#anws').val();
+                var queryString = "?" + inputValue;
+                window.location.href = "intro" + queryString;
+            } 
+        });
+
+    </script>
     <script>
 
         function receiveData() {

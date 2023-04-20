@@ -470,20 +470,32 @@
             fill: #FFFFFF;
             enable-background: new;
         }
+
+
+        #leftbox label,
+        #leftbox input,
+        #leftbox span {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        #leftbox input[type=number] {
+            width: 70%;
+        }
     </style>
 </head>
 
 <body>
     <div id="boxes" style="padding-top: 1em; ">
         <div id="leftbox">
-            <h2 style="padding-left: 2vw;">Vidas: 5</h2>
+            <h2 id="lives" style="padding-left: 2vw;">Vidas: 5</h2>
 
         </div>
 
 
 
         <div id="rightbox">
-            <h2 style="padding-right: 2vw;">Pistas: 5</h2>
+            <h2 id='hints' style="padding-right: 2vw;">Pistas: 5</h2>
 
         </div>
     </div>
@@ -495,22 +507,31 @@
 
     </div>
     <div style=" width: 100vw; text-align: center; padding-top: 10vh; padding-left: 10vw;padding-right: 10vw;">
-        <p style="font-size: 2em;">{{data['text']}}
+        <p style="font-size: 2em; text-align: justify;">{{data['text']}}
         </p>
         <br><br>
-        <img src="/static/img/{{data['photo']}}" alt="">
+        <img id="image" src="/static/img/{{data['photo']}}" alt="">
     </div>
     <div id="boxes" style="padding-top: 15vh; ">
         <div id="leftbox" style="padding-left: 5vw;">
+
             <input style="width: 30vw;" id="anws" type="text" placeholder="Ingrese su respuesta" class="form-control"
-                aria-label="Default" aria-describedby="inputGroup-sizing-default">>m/s
-            <h1< /h1>
+                aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            <span>
+                <h2> {{data['type']}}</h2>
+            </span>
         </div>
 
         <div id="rightbox" style="padding-right: 5vw;">
-            <button type="Comenzar" class="btn btn-primary btn-lg">Enviar</button>
+            <button id="validate" type="Comenzar" class="btn btn-primary btn-lg">Enviar</button>
         </div>
         <br><br><br>
+    </div>
+    <div>
+        <center>
+            <button id="pista" type="now" class="btn btn-primary btn-lg">Usar Pistas</button>
+        </center>
+        <br><br>
     </div>
     <audio id="player" autoplay loop>
         <source src="/static/sounds/Happy-Days.mp3" type="audio/mp3">
@@ -552,9 +573,33 @@
         function sendData(text, img, tmp) {
 
             data = receiveData();
-            var queryString = "?" + parseInt(data[0]) + "&" + text + "&" + img + "&" + tmp;
+            lifesHints = getLifeAndHint();
+            var queryString = "?" + parseInt(data[0]) + "&" + text + "&" + img + "&" + tmp + "&" + lifesHints[0] + "&" + lifesHints[1] + "&" + data[6];
             window.location.href = "/next" + queryString;
         }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get the original image element
+            const originalImage = document.getElementById("image");
+
+            // Create a new image element
+            const newImage = new Image();
+
+            // Set the width and height of the new image to double the original image's width and height
+            newImage.width = originalImage.width * 2;
+            newImage.height = originalImage.height * 2;
+
+            // Set the source of the new image to the same source as the original image
+            newImage.src = originalImage.src;
+
+            // Replace the original image with the new image
+            originalImage.replaceWith(newImage);
+        });
+
+
+
+
+
 
 
     </script>
@@ -614,6 +659,68 @@
             });
         }
 
+        function getLifeAndHint() {
+            const livesHeading = document.getElementById("lives");
+            const livesText = livesHeading.innerText; // Get the full text content of the h2 element
+            const livesNumber = parseInt(livesText.split(":")[1])
+
+            const hintsHeading = document.getElementById("hints");
+            const hintsText = hintsHeading.innerText; // Get the full text content of the h2 element
+            const hintsNumber = parseInt(hintsText.split(":")[1])
+            return [livesNumber, hintsNumber]
+        }
+
+        function setLifeAndHint(livesNumber, hintsNumber) {
+            const livesHeading = document.getElementById("lives");
+            const livesText = livesHeading.innerText; // Get the full text content of the h2 element
+            livesHeading.innerText = `Vidas: ${livesNumber}`;
+
+            const hintsHeading = document.getElementById("hints");
+            const hintsText = hintsHeading.innerText; // Get the full text content of the h2 element
+            hintsHeading.innerText = `Pistas: ${hintsNumber}`;
+        }
+
+        function restLife() {
+            const livesHeading = document.getElementById("lives");
+            const livesText = livesHeading.innerText; // Get the full text content of the h2 element
+            const livesNumber = parseInt(livesText.split(":")[1]) - 1;
+            livesHeading.innerText = `Vidas: ${livesNumber}`;
+
+            if (livesNumber <= 0) {
+                endGame();
+            }
+        }
+
+
+        function restHint() {
+            const livesHeading = document.getElementById("hints");
+            const livesText = livesHeading.innerText; // Get the full text content of the h2 element
+            const livesNumber = parseInt(livesText.split(":")[1]) - 1;
+            if (livesNumber <= 0) {
+                showAlertWithButton('no te quedan pistas!', 'false');
+            } else {
+                livesHeading.innerText = `Pistas: ${livesNumber}`;
+                showAlertWithButton("{{data['hint']}}", 'false');
+            }
+
+        }
+
+        $(document).ready(function () {
+            $('#pista').click(function () {
+                restHint();
+            });
+
+            //sendData();
+        });
+
+
+        function endGame() {
+            data = receiveData();
+            console.log(remainingTime, data)
+            score = data[0] * remainingTime
+        }
+
+
         function manageResult(anws, remainingTime) {
             console.log('jj')
             if (anws['anws'].toString() == 'true') {
@@ -625,6 +732,7 @@
                 var audio = document.getElementById('incorrect');
                 audio.play();
                 showAlertWithButton('Respuesta Incorrecta!', 'false');
+                restLife();
 
             }
         }
@@ -632,10 +740,11 @@
         data = receiveData()
         console.log(data)
         var remainingTime = parseInt(data[3]);
+        setLifeAndHint(parseInt(data[4]), parseInt(data[5]))
         var timerInterval;
         data = receiveData()
         $(document).ready(function () {
-            $('.btn').click(function () {
+            $('#validate').click(function () {
                 var inputValue = $('#anws').val();
                 result = request(data[0], inputValue)
                 request(data[0], inputValue, function (response) {
