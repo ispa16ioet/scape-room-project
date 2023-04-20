@@ -3,93 +3,128 @@ questions= [{
     'type':'1',
     'answer':'0,83',
     'hint':'',
-    'photo':'Imagen1.jpg',
-    'next':'Imagen2.jpg',
+    'photo':'Imagen2.png',
+    'next':'Imagen1.png',
     'nextUbi':'cc'
 },{
-    'text':'Como segunda puerta, tenemos a la imagen de la Virgen de Guadalupe y quien en sus manos tiene un papel con dos preguntas',
+    'text':'Entramos a la  segunda puerta, y encontramos a la imagen del Hermano Miguel: educador ecuatoriano,   en sus manos tiene un papel con dos preguntas 1.	Escriba la clasificación de los triángulos según sus lados',
     'type':'1',
     'answer':'equilátero, isósceles y escaleno',
     'hint':'',
     'photo':'',
-    'next':'',
+    'next':'Imagen3.png',
     'nextUbi':'cc'
 },{
-    'text':'Como segunda pregunta tenemos que un ingeniero quiere darle forma a los siguientes datos que le proporciona el plano que le dio su jefe ¿Qué triángulo se formará, si el segmento AC mide 12m y el segmento CB = AC, y el segmento que une a estos es  BA mide 8m?',
+    'text':'2.	Un ingeniero quiere darle forma a los siguientes datos que le proporciona el plano que le dio su jefe ¿Qué triángulo se formará, si el segmento AC mide 12m y el segmento CB = AC, y el segmento que une a estos es  BA mide 8m?',
     'type':'1',
-    'answer':'Se forma un triángulo isósceles ',
+    'answer':'Se forma un triángulo isósceles',
     'hint':'',
     'photo':'',
-    'next':'',
+    'next':'Imagen3.png',
     'nextUbi':'cc'
 },{
-    'text':'El turista se pierde al bajar las gradas y encuentra una pintura de un mapa de la catedral internamente, para tener acceso a él, se les propone el siguiente problema:  Lo siguientes pares de triángulos cumplen con el criterio de congruencia LADO- ÁNGULO-LADO',
-    'type':'2',
+    'text':'El turista se pierde al bajar las gradas y encuentra una pintura de un mapa de la catedral internamente, para tener acceso a él, se les propone el siguiente problema: ',
+    'type':'1',
+    'answer':'Responda: Verdadero o Falso',
+    'hint':'',
+    'photo':'Imagen5.png',
+    'next':'Imagen4.png',
+    'nextUbi':'cc'
+},{
+    'text':'Lo siguientes pares de triángulos cumplen con el criterio de congruencia LADO- ÁNGULO-LADO',
+    'type':'1',
     'answer':'Falso',
     'hint':'',
-    'photo':'',
-    'next':'.'
+    'photo':'Imagen.png',
+    'next':'Imagen7.png',
+    'nextUbi':'cc'
 },{
-    'text':'Cada vez el desafío de abrir las puertas se vuelve más interesante y esta vez en la puerta 4 se encuentra solo un sobre el cual tiene un ejercicio muy dinámico y dice: Si me dices el número que representaría el valor de “x” seguirás avanzando',
+    'text':'Cada vez el desafío de abrir las puertas se vuelve más interesante y esta vez en la puerta 4 se encuentra solo un sobre el cual tiene un ejercicio muy dinámico y dice:',
     'type':'1',
-    'answer':'3 cm',
+    'answer':'3cm',
     'hint':'',
-    'photo':'',
-    'next':''
+    'photo':'Imagen9.png',
+    'next':'Imagen7.png',
+    'nextUbi':'cc'
 },{
-    'text':'El turista pierde la señal de su celular, para recuperarla y llamar a su guía deberá resolver el siguiente ejercicio: Calcular la altura de un edificio que proyecta una sombra de 6.5 m a la misma hora que un poste de 4.5 m de altura da una sombra de 0.90 m.',
-    'type':'',
-    'answer':'32,5 m',
-    'hint':'',
-    'photo':'',
-    'next':'.'
-},{
-    'text':'Ya después de algunos acertijos resueltos, se encuentra cansado y hasta se preguntan porque aceptaron el reto y al llegar a la sexta puerta les llama mucho la atención porque esta, está entreabierta y para poder avanzar debe responder correctamente a las siguientes preguntas. La primera es: 1.	Soy una pequeña figura que no sé cuanto mide mi contorno, si me dicen que soy un triángulo isósceles y uno de mis lados iguales es la tercera parte de mi lado desigual  y mi lado desigual mide 30 cm. ¿Puedes decirme cuanto mido?',
-    'type':'',
-    'answer':'50 cm',
-    'hint':'',
-    'photo':'',
-    'next':''
-},{
-    'text':'La segunda pregunta es: Yo conozco mis medidas  y me dicen que mi base mide dos veces mi altura, pero desconozco mi superficie, mi altura mide 18 m. Podrías decirme, ¿Cuánto mide mi superficie?',
+    'text':'Calcular la altura de un edificio que proyecta una sombra de 6.5 m a la misma hora que un poste de 4.5 m de altura da una sombra de 0.90 m.',
     'type':'1',
-    'answer':'324',
+    'answer':'32.5m',
     'hint':'',
-    'photo':'',
-    'next':''
+    'photo':'Imagen11.png',
+    'next':'Imagen10.png',
+    'nextUbi':'cc'
 },{
-    'text':'Se va la luz, todo se vuelve oscuro. Se le aparece una  caja que contiene 4 linternas, pero esta tiene clave la consta de cuatro  letras según el orden de las respuestas de este acertijo:			—-   —-   —-   —--- Baricentro (B)    	Ortocentro (O)		Circuncentro (C) 	Incentro(I) Punto de intersección de las alturas de un  triángulo ……. Punto de encuentro de las bisectrices de un triángulo …….. Punto de encuentro de las mediatrices de un triángulo……… Punto de corte o de encuentro de medianas de un triángulo …….',
-    'type':'',
+    'text':'Soy una pequeña figura que no sé cuanto mide mi contorno, si me dicen que soy un triángulo isósceles y uno de mis lados iguales es la tercera parte de mi lado desigual  y mi lado desigual mide 30 cm. ¿Puedes decirme cuanto mido?',
+    'type':'1',
+    'answer':'50cm',
+    'hint':'',
+    'photo':'Imagen12.png',
+    'next':'',
+    'nextUbi':'cc'
+},{
+    'text':'Se va la luz, todo se vuelve oscuro. Se le aparece una  caja que contiene  linternas, pero ésta tiene clave la consta de cuatro  letras según el orden de las respuestas de este acertijo',
+    'type':'1',
     'answer':'OICB',
     'hint':'',
     'photo':'',
-    'next':''
+    'next':'Imagen13.png',
+    'nextUbi':'cc'
 },{
-    'text':'Cada vez se vuelven más entretenido y en esta puerta se encuentra la estampa del Sagrado Corazón de Jesús el cual tiene una pregunta, pero antes les presenta como plus y texto: Es un teorema matemático que relaciona los lados de un triángulo rectángulo de la siguiente manera: “ El cuadrado de la hipotenusa es igual a la suma de los cuadrados de sus catetos”. 1.	Resuelve. Si los catetos de un triángulo rectángulo miden 4m y 3m  determine el valor de la hipotenusa.',
+    'text':'ResuelveSi los catetos de un triángulo rectángulo miden 4m y 3m  determine el valor de la hipotenusa.',
+    'type':'1',
+    'answer':'5 m',
+    'hint':'',
+    'photo':'Imagen15.png',
+    'next':'Imagen14.png',
+    
+    'nextUbi':'cc'
+},{
+    'text':'Puede usarse para demostrar geométricamente el teorema de Pitágoras porque',
+    'type':'1',
+    'answer':'d',
+    'hint':'',
+    'photo':'Imagen17.png',
+    'next':'Imagen16.png',
+    'nextUbi':'cc'
+ },{
+    'text':'Encuentren el área de la siguiente figura, pero como  plus,  les dicen que pueden dividir la figuras en figuras ya conocidas',
     'type':'',
-    'answer':'5',
+    'answer':'3700m^2',
+    'hint':'',
+    'photo':'Imagen19.png',
+    'next':'Imagen18.png',
+    'nextUbi':'cc'
+ },{
+    'text':'Un cilindro tiene por diámetro 1/5  de la altura . Y la altura mide 50 cm. Calcular el volumen:',
+    'type':'1',
+    'answer':'Rsp: 1250πcm^3',
+    'hint':'',
+    'photo':'Imagen21.png',
+    'next':'Imagen20.png',
+    'nextUbi':'cc'
+},{
+    'text':'No tengo 4 lados, no tengo 5 lados. Tengo la mitad de 6 lados y un ángulo mío siempre será de 90 ° ¿Quién soy?',
+    'type':'1',
+    'answer':'triángulo rectángulo',
     'hint':'',
     'photo':'',
-    'next':''
+    'next':'Imagen22.png',
+    'nextUbi':'cc'
 },{
-    'text':'',
-    'type':'',
-    'answer':'',
+    'text':'2.	 Adivina soy una figura geométrica muy gorda ,aunque  yo no soy triangular, tampoco soy  un cuadrado, no tengo vértices y  mi lado es una línea curva. ¿Quién soy?',
+    'type':'1',
+    'answer':'Círculo',
     'hint':'',
     'photo':'',
-    'next':''
+    'next':'',
+    'nextUbi':'cc'
 },{
-    'text':'',
-    'type':'',
-    'answer':'',
+    'text':'1.	 Dos o más triángulos son _________________ si tienen la misma forma (proporciones) pero no el mismo tamaño.',
+    'type':'1',
+    'answer':'Semejanza',
     'hint':'',
-    'photo':'',
-    'next':''
-},{
-    'text':'',
-    'type':'',
-    'answer':'',
-    'hint':'',
-    'photo':'',
-    'next':''
+    'photo':'Imagen24.png',
+    'next':'Imagen23.png',
+    'nextUbi':'cc'
 }]
