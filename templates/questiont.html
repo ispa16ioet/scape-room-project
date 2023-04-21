@@ -718,7 +718,12 @@
         function endGame() {
             data = receiveData();
             console.log(remainingTime, data)
-            score = data[0] * remainingTime
+            score = data[0] * remainingTime 
+            lifesHints = getLifeAndHint();
+            var queryString = "?" + parseInt(data[0]) + "&" + "&" + data[1] + "&" + remainingTime + "&" + remainingTime + "&" + data[4] + "&" + data[5]+ "&" + data[6] + lifesHints[0] + "&" + lifesHints[1] + "&" + data[6] + "&" + score;
+
+            window.location.href = "/endgame" + queryString;
+            
         }
 
 
@@ -813,6 +818,7 @@
                 timerInterval = null;
                 $("#startStopButton").html("Iniciar");
                 alert("¡Tiempo cumplido!");
+                endGame();
             }
         }
     </script>

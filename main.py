@@ -17,6 +17,12 @@ def next():
 def question():
     return render_template('intro.html')
 
+
+@app.route('/endgame')
+def endgame():
+    return render_template('endGame.html')
+
+
 @app.route('/questiont/<id>')
 def questiont(id):
     data = questions.questions

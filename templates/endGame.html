@@ -119,9 +119,34 @@
 <body>
     <div class="centered-div">
         <h1>Juego Terminado</h1>
-        <p>Puntuacion Final: 10pts</p>
-        <img src="img/d.svg" alt="" style="height: 25vh; width: 25vw;">
+        <h2 id="name"></h2>
+        <p>Puntuacion Final: <span id="score">10pts</span> </p>
+        <p>Tiempo Total: <span id="time"></span></p>
+        <img src="static/img/d.svg" alt="" style="height: 25vh; width: 25vw;">
     </div>
+    
 </body>
 
+<script>
+    
+    function receiveData() {
+            var queryString = decodeURIComponent(window.location.search);
+            queryString = queryString.substring(1);
+            var queries = queryString.split("&");
+            return queries
+        }
+
+    data = receiveData()
+    var livesHeading = document.getElementById("score");
+    var livesText = livesHeading.innerText; // Get the full text content of the h2 element
+    livesHeading.innerText = data[10];
+
+    var livesHeading = document.getElementById("name");
+    var livesText = livesHeading.innerText; // Get the full text content of the h2 element
+    livesHeading.innerText = data[9];
+
+    var livesHeading = document.getElementById("time");
+    var livesText = livesHeading.innerText; // Get the full text content of the h2 element
+    livesHeading.innerText = data[4];
+</script>
 </html>
