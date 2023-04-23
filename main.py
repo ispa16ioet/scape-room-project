@@ -2,6 +2,8 @@ import os
 
 from flask import Flask, render_template,jsonify
 import questions
+from flask import Markup
+
 app = Flask(__name__)
 
 
@@ -27,6 +29,7 @@ def endgame():
 def questiont(id):
     data = questions.questions
     print(data[int(id)])
+    data[int(id)]['text'] = (data[int(id)]['text']).replace('\n', '<br>')
     return render_template('questiont.html',data = data[int(id)])
 
 @app.route('/validate/<id>/<answer>')
@@ -42,5 +45,6 @@ def validate(id,answer):
                }
         return jsonify(anwse)
     return jsonify(anws)
+
 if __name__ == '__main__':
     app.run(debug=True)

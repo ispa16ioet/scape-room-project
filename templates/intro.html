@@ -23,9 +23,9 @@
             animation: 10s linear 0s normal none infinite animate;
 
         }
-        
 
-        
+
+
 
         @-webkit-keyframes animate {
             from {
@@ -216,9 +216,8 @@
         <div class="output" id="output">
             <h1 class="cursor"></h1>
             <br>
-            <button onclick=sendData()
-                type="Comenzar" class="btn btn-primary btn-lg">Comenzar</button>
-            
+            <button onclick=sendData() type="Comenzar" class="btn btn-primary btn-lg">Comenzar</button>
+
 
         </div>
     </div>
@@ -252,9 +251,9 @@
         return queries
     }
     function sendData() {
-        
+
         data = receiveData();
-        window.location.href =`next?-1&Parte alta de la Catedral de Cuenca&Imagen1.png&1200&5&5&${data[0]}`;
+        window.location.href = `next?-1&Parte alta de la Catedral de Cuenca&Imagen.png&1200&5&5&${data[0]}`;
     }
 </script>
 

@@ -502,12 +502,14 @@
     <br><br>
     <div style="width: 100vw; height: 5vh; padding-top: 1vh; align-content: center;">
         <center>
-            <h2 style="" id="time">Tiempo: 20:00</h2>
+            <h2 style="" id="time">Tiempo: 40:00</h2>
         </center>
 
     </div>
     <div style=" width: 100vw; text-align: center; padding-top: 10vh; padding-left: 10vw;padding-right: 10vw;">
-        <p style="font-size: 2em; text-align: justify;">{{data['text']}}
+        <p style="font-size: 2em; text-align: justify;"> {% autoescape false %}
+            {{ data['text'] }}
+            {% endautoescape %}
         </p>
         <br><br>
         <img id="image" src="/static/img/{{data['photo']}}" alt="">
@@ -575,7 +577,13 @@
             data = receiveData();
             lifesHints = getLifeAndHint();
             var queryString = "?" + parseInt(data[0]) + "&" + text + "&" + img + "&" + tmp + "&" + lifesHints[0] + "&" + lifesHints[1] + "&" + data[6];
-            window.location.href = "/next" + queryString;
+            console.log(parseInt(data[0]))
+            if (parseInt(data[0]) == 16) {
+                endGame()
+            } else {
+                window.location.href = "/next" + queryString;
+            }
+
         }
 
         document.addEventListener("DOMContentLoaded", function () {
@@ -718,12 +726,12 @@
         function endGame() {
             data = receiveData();
             console.log(remainingTime, data)
-            score = data[0] * remainingTime + data[0] + remainingTime
+            score = parseInt(data[0]) * parseInt(remainingTime) + parseInt(data[0]) + parseInt(remainingTime)
             lifesHints = getLifeAndHint();
-            var queryString = "?" + parseInt(data[0]) + "&" + "&" + data[1] + "&" + remainingTime + "&" + remainingTime + "&" + data[4] + "&" + data[5]+ "&" + data[6] + lifesHints[0] + "&" + lifesHints[1] + "&" + data[6] + "&" + score;
+            var queryString = "?" + parseInt(data[0]) + "&" + "&" + data[1] + "&" + remainingTime + "&" + remainingTime + "&" + data[4] + "&" + data[5] + "&" + data[6] + lifesHints[0] + "&" + lifesHints[1] + "&" + data[6] + "&" + score;
 
             window.location.href = "/endgame" + queryString;
-            
+
         }
 
 
