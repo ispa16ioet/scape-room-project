@@ -586,7 +586,10 @@
 
         }
 
-        document.addEventListener("DOMContentLoaded", function () {
+        const myImage = document.getElementById('image');
+
+        myImage.addEventListener('load', function () {
+            // Your code here to execute after the image has loaded
             // Get the original image element
             const originalImage = document.getElementById("image");
 
@@ -602,7 +605,9 @@
 
             // Replace the original image with the new image
             originalImage.replaceWith(newImage);
+
         });
+
 
 
 
