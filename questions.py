@@ -1,15 +1,15 @@
 questions= [{
     'text':f'El turista se encuentra en la parte alta de la Catedral en Cuenca, observando lo hermoso del arte a su alrededor. Se toma una fotografía de recuerdo y pasa un buen momento. Al regresar, se da cuenta que   la primera puerta tiene  una clave estructurada de la siguiente manera._____   , _____  ______Los espacios son números que son la solución del siguiente problema.¿Cuál es la razón de semejanza entre estas dos figuras? ',
-    'type':'cm',
+    'type':'',
     'answer':'0,83',
-    'hint':'Pista: Divide un lado de la 1ra figura con el lado semejante de la 2da figura.',
-    'photo':'Imagen2.png',
+    'hint':'Pista: Divide un lado de la primera figura con el lado semejante de la segunda figura.',
+    'photo':'Imagen2.jfif',
     'next':'Imagen1.png',
     'nextUbi':'Imagen del Hermano Miguel'
 },{
     'text':'Entramos a la  segunda puerta, y encontramos a la imagen del Hermano Miguel: educador ecuatoriano,   en sus manos tiene un papel con dos preguntas 1.	Escriba la clasificación de los triángulos según sus lados',
     'type':'',
-    'answer':'equilátero, isósceles y escaleno',
+    'answer':'equilátero, isosceles, escaleno',
     'hint':'Pista: Son 3 , y sus iniciales son: E,I,E. ',
     'photo':'miguel.png',
     'next':'Imagen3.png',
@@ -17,7 +17,7 @@ questions= [{
 },{
     'text':'2.	Un ingeniero quiere darle forma a los siguientes datos que le proporciona el plano que le dio su jefe ¿Qué triángulo se formará, si el segmento AC mide 12m y el segmento CB = AC, y el segmento que une a estos es  BA mide 8m?',
     'type':'',
-    'answer':'Se forma un triángulo isósceles',
+    'answer':'Se forma un triángulo isosceles',
     'hint':'Pista . Es un tipo de triángulo que tiene dos lados de igual magnitud. ',
     'photo':'',
     'next':'Imagen3.png',
@@ -27,7 +27,7 @@ questions= [{
     'type':'',
     'answer':'Falso',
     'hint':'Pista: La respuesta es igual que responder a: ¿Es cierto que 2(4-1)= 3(45-42)? ',
-    'photo':'Imagen7.png',
+    'photo':'Imagen7.jfif',
     'next':'Imagen8.png',
     'nextUbi':'Puerta 4'
 },{
@@ -35,7 +35,7 @@ questions= [{
     'type':'cm',
     'answer':'3',
     'hint':'Pista: Fíjate en las letras de la parte superior de la imagen. ',
-    'photo':'cm.png',
+    'photo':'cm.jfif',
     'next':'Imagen9.png',
     'nextUbi':'Habitación'
 },{
@@ -43,7 +43,7 @@ questions= [{
     'type':'m',
     'answer':'32,5',
     'hint':'Pista: Empieza con la respuesta de E-B=?. Sustituye cada letra por el número que corresponde según su posición (Por ejemplo: A=1, B=2, C=3, D=4).',
-    'photo':'Imagen11.png',
+    'photo':'Imagen11.jfif',
     'next':'Imagen12.png',
     'nextUbi':'Sexta puerta'
 },{
@@ -56,7 +56,7 @@ questions= [{
     'nextUbi':'Sexta puerta parte 2'
 },{
     'text':'2.	 Yo conozco mis medidas  y me dicen que mi base mide dos veces mi altura, pero desconozco mi superficie, mi altura mide 18 m. Podrías decirme, ¿Cuánto mide mi superficie?',
-    'type':'m2',
+    'type':'m^2',
     'answer':'324',
     'hint':'Pista: El área del triángulo es la mitad que el área de un rectángulo. ',
     'photo':'',
@@ -89,8 +89,8 @@ questions= [{
     
     'nextUbi':'Escaleras'
 },{
-    'text':'En la siguiente puerta se les aparece el siguiente acertijo para poder continuar. En caso de contestar incorrectamente en el piso aparecerá un gran agujero negro. La figura mostrada a continuación. Puede usarse para demostrar geométricamente el teorema de Pitágoras porque \na). El área del cuadrado morado es igual al área del triángulo (color rojo).\nb). La suma de las áreas de los cuadrados morado y azul es igual al área del triángulo (color rojo).\nc) La suma de las áreas del triángulo y del cuadrado verde es igual a la suma de las áreas de los cuadrados azul y morado.\nd) La suma de las áreas de los cuadrados verde y azul es igual al área del cuadrado morado.',
-    'type':'',
+    'text':' \na). El área del cuadrado morado es igual al área del triángulo (color rojo).\nb). La suma de las áreas de los cuadrados morado y azul es igual al área del triángulo (color rojo).\nc) La suma de las áreas del triángulo y del cuadrado verde es igual a la suma de las áreas de los cuadrados azul y morado.\nd) La suma de las áreas de los cuadrados verde y azul es igual al área del cuadrado morado.',
+    'type':'En la siguiente puerta se les aparece el siguiente acertijo para poder continuar. En caso de contestar incorrectamente en el piso aparecerá un gran agujero negro. La figura mostrada a continuación. Puede usarse para demostrar geométricamente el teorema de Pitágoras porque',
     'answer':'d',
     'hint':'Pista: No es la c',
     'photo':'Imagen17.png',
@@ -101,7 +101,7 @@ questions= [{
     'type':'m^2',
     'answer':'3700',
     'hint':'Pista: Para obtener el área puedes dividir en un rectángulo y dos triángulos rectos y luego sumar.',
-    'photo':'Imagen19.png',
+    'photo':'Imagen19.jfif',
     'next':'Imagen20.png',
     'nextUbi':'Imagen de Sagrado Corazón de María'
  },{
@@ -130,7 +130,7 @@ questions= [{
     'nextUbi':'Puerta de Salida'
 },{
     'text':'Ya para salir, nos encuentra el sacerdote y nos dice que él tiene la llave pero que antes debemos responder a la siguiente pregunta: Dos o más triángulos son _________________ si tienen la misma forma (proporciones) pero no el mismo tamaño.',
-    'type':'',
+    'type':'op1',
     'answer':'Semejanza',
     'hint':'No hay pistas.',
     'photo':'Imagen24.png',

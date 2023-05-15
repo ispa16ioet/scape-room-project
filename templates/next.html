@@ -12,10 +12,9 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
     <style>
-        body{
+        body {
             background-image: url('');
-            background-repeat: no-repeat;
-            background-size: cover;
+
         }
 
         @-webkit-keyframes animate {
@@ -110,7 +109,7 @@
 </head>
 
 <body>
-    <div style="width: 100vw; height: 25vh; align-content: center;">
+    <div style="width: auto; height: auto; align-content: center; background-color:white;">
         <center>
             <br>
             <h1>Siguiente Ubicacion :</h1>
@@ -169,20 +168,20 @@
             console.log(data[5])
             var value1 = "value1";
             var value2 = "value2";
-            var queryString = "?" + (parseInt(data[0]) + 1) + "&" + data[1] + "&" + data[2] + "&" + data[3] + "&" + data[4] + "&" + data[5]+ "&" + data[6];
+            var queryString = "?" + (parseInt(data[0]) + 1) + "&" + data[1] + "&" + data[2] + "&" + data[3] + "&" + data[4] + "&" + data[5] + "&" + data[6];
             window.location.href = "questiont/" + (parseInt(data[0]) + 1) + queryString;
         }
         function load_stuff(text, img) {
             var paragraph = document.getElementById('ubi');
             paragraph.innerHTML = text;
-                        // Get a reference to the body element
+            // Get a reference to the body element
             const body = document.body;
             // Set the background image of the body
             body.style.backgroundImage = `url(/static/img/${img.toString()})`;
         }
         $(document).ready(function () {
             data = receiveData();
-            
+
             console.log(data, data[0])
             load_stuff(data[1], data[2])
             setTimeout(function () {

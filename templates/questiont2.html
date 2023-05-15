@@ -517,11 +517,11 @@
     <div id="boxes" style="padding-top: 15vh; ">
         <div id="leftbox" style="padding-left: 5vw;">
 
-            <input style="width: 30vw;" id="anws" type="text" placeholder="Ingrese su respuesta" class="form-control"
-                aria-label="Default" aria-describedby="inputGroup-sizing-default">
-            <span>
-                <h2> {{data['type']}}</h2>
-            </span>
+            <select class="selectpicker">
+                <option>Semejanza</option>
+                <option>Congruencia</option>
+                <option>Bisectriz</option>
+            </select>
         </div>
 
         <div id="rightbox" style="padding-right: 5vw;">
@@ -546,8 +546,15 @@
     <audio id="incorrect">
         <source src="/static/sounds/negative.mp3" type="audio/mp3">
     </audio>
-    <script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 
+    <script>
+        $('select').selectpicker();
 
         const audio = document.getElementById('player');
 

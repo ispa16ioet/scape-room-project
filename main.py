@@ -27,9 +27,15 @@ def endgame():
 
 @app.route('/questiont/<id>')
 def questiont(id):
+    
+
     data = questions.questions
     print(data[int(id)])
     data[int(id)]['text'] = (data[int(id)]['text']).replace('\n', '<br>')
+    if id =='16':
+        return render_template('questiont2.html',data = data[int(id)])
+    if id =='11':
+        return render_template('questiont3.html',data = data[int(id)])
     return render_template('questiont.html',data = data[int(id)])
 
 @app.route('/validate/<id>/<answer>')
@@ -37,7 +43,69 @@ def validate(id,answer):
     print(id,answer)
     anws= {'anws':'false'}
     data = questions.questions
-    if answer == str(data[int(id)]['answer']):
+    rta = answer.lower().replace(',',' ').split( )
+    rta2 = str(data[int(id)]['answer']).lower()
+
+    if id == '1':
+        print(answer)
+        if 'equilatero' in rta:
+            print('equilatero')
+            
+        if 'escaleno' in rta:
+            print('escaleno')
+        if 'equilatero' in rta:
+            print('isosceles')
+          
+        if 'equilatero' in rta and 'isosceles' in rta and 'escaleno' in rta:
+            anwse= {'anws':'true',
+               'photo':data[int(id)]['photo'],
+               'next':data[int(id)]['next'],
+               'nextUbi':data[int(id)]['nextUbi'],
+               }
+            return jsonify(anwse)
+        if 'equilátero' in rta  and 'isosceles' in rta and 'escaleno' in rta:
+            anwse= {'anws':'true',
+               'photo':data[int(id)]['photo'],
+               'next':data[int(id)]['next'],
+               'nextUbi':data[int(id)]['nextUbi'],
+               }
+            return jsonify(anwse)
+    if id == '2':
+        if 'isosceles' in rta:
+            anwse= {'anws':'true',
+               'photo':data[int(id)]['photo'],
+               'next':data[int(id)]['next'],
+               'nextUbi':data[int(id)]['nextUbi'],
+               }
+            return jsonify(anwse)
+    if id == '14':
+        if 'rectángulo' in rta or 'rectangulo' in rta:
+            anwse= {'anws':'true',
+               'photo':data[int(id)]['photo'],
+               'next':data[int(id)]['next'],
+               'nextUbi':data[int(id)]['nextUbi'],
+               }
+            return jsonify(anwse)
+    if id == '15':
+        if 'círculo' in rta or 'circulo' in rta:
+            anwse= {'anws':'true',
+               'photo':data[int(id)]['photo'],
+               'next':data[int(id)]['next'],
+               'nextUbi':data[int(id)]['nextUbi'],
+               }
+            return jsonify(anwse)
+    if id == '16':
+        if 'semejanza' in rta or 'semejansa' in rta:
+            anwse= {'anws':'true',
+               'photo':data[int(id)]['photo'],
+               'next':data[int(id)]['next'],
+               'nextUbi':data[int(id)]['nextUbi'],
+               }
+            return jsonify(anwse)
+    print(answer.lower(),rta2.lower())        
+    if answer.lower() == rta2.lower():
+        
+
         anwse= {'anws':'true',
                'photo':data[int(id)]['photo'],
                'next':data[int(id)]['next'],

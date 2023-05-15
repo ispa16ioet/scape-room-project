@@ -508,11 +508,18 @@
     </div>
     <div style=" width: 100vw; text-align: center; padding-top: 10vh; padding-left: 10vw;padding-right: 10vw;">
         <p style="font-size: 2em; text-align: justify;"> {% autoescape false %}
+            {{ data['type'] }}
+            {% endautoescape %}
+            :</p>
+        <br>
+        <img id="image" src="/static/img/{{data['photo']}}" alt="">
+        <br><br>
+        <p style="font-size: 2em; text-align: justify;"> {% autoescape false %}
             {{ data['text'] }}
             {% endautoescape %}
         </p>
         <br><br>
-        <img id="image" src="/static/img/{{data['photo']}}" alt="">
+
     </div>
     <div id="boxes" style="padding-top: 15vh; ">
         <div id="leftbox" style="padding-left: 5vw;">
@@ -520,7 +527,6 @@
             <input style="width: 30vw;" id="anws" type="text" placeholder="Ingrese su respuesta" class="form-control"
                 aria-label="Default" aria-describedby="inputGroup-sizing-default">
             <span>
-                <h2> {{data['type']}}</h2>
             </span>
         </div>
 
