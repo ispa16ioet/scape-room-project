@@ -753,7 +753,8 @@
         data = receiveData()
         $(document).ready(function () {
             $('#validate').click(function () {
-                var inputValue = $('#anws').val();
+                var selectElement = document.querySelector('.selectpicker');
+                var inputValue = selectElement.options[selectElement.selectedIndex].text;
                 result = request(data[0], inputValue)
                 request(data[0], inputValue, function (response) {
                     // Manejar la respuesta aquí

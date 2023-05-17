@@ -63,7 +63,7 @@ def validate(id,answer):
                'nextUbi':data[int(id)]['nextUbi'],
                }
             return jsonify(anwse)
-        if 'equilátero' in rta  and 'isosceles' in rta and 'escaleno' in rta:
+        if 'equilátero' in rta  and 'isósceles' in rta and 'escaleno' in rta:
             anwse= {'anws':'true',
                'photo':data[int(id)]['photo'],
                'next':data[int(id)]['next'],
@@ -71,7 +71,7 @@ def validate(id,answer):
                }
             return jsonify(anwse)
     if id == '2':
-        if 'isosceles' in rta:
+        if 'isosceles' in rta or 'isósceles' in rta:
             anwse= {'anws':'true',
                'photo':data[int(id)]['photo'],
                'next':data[int(id)]['next'],
@@ -115,4 +115,4 @@ def validate(id,answer):
     return jsonify(anws)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug='on')
+    app.run()
